@@ -1,13 +1,17 @@
-import './App.scss';
+import { Provider } from "react-redux";
+import store from "./store";
 import Home from './components/home';
+
+import './App.scss';
 
 
 function App() {
   return (
-    <div className="App">
-      Holanda que talca
-      <Home></Home>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Home></Home>
+      </div>
+    </Provider>
   );
 }
 
