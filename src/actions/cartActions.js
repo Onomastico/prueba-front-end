@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from './types';
+import { ADD_TO_CART, REMOVE_FROM_CART, TOGGLE_CART_STATE } from './types';
 
 export const addToCart = (items, product) => (dispatch) => {
     const cartItems = items.slice();
@@ -12,15 +12,20 @@ export const addToCart = (items, product) => (dispatch) => {
         
     });
 
-    if (alreadyInCart) {
+    if (!alreadyInCart) {
         cartItems.push({ ...product, count:1});
     }
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    //localStorage.setItem('cartItems', JSON.stringify(cartItems));
     dispatch({ type: ADD_TO_CART, payload: {cartItems}});
 };
 
 export const removeFromCart = (items, product) => (dispatch) => {
     const cartItems = items.slice().filter((a) => a.id !== product.id);
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    //localStorage.setItem('cartItems', JSON.stringify(cartItems));
     dispatch({type: REMOVE_FROM_CART, payload: {cartItems}});
+};
+
+export const toggleCartState = (newState) => (dispatch) => {
+    console.log("Cambiando estado del carro")
+    dispatch({type: TOGGLE_CART_STATE, payload: {newState}});
 };
