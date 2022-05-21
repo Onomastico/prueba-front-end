@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {formatCurrency} from "../../util";
 import { addToCart, removeFromCart, toggleCartState } from "../../actions/cartActions";
-import { ItemCart } from "../itemCart";
+import ItemCart from "../itemCart";
 
 import styles from './styles.module.scss';
 
@@ -10,10 +10,10 @@ class Basket extends Component {
     render() {
         const cartItems = this.props.cart.items;
         const cartOpen = this.props.cart.isOpen;
-        const productsLength = 0; //this.props.cart.items.length;
+        const productsLength = this.props.cart.items.length;
 
         const total = cartItems?.reduce(
-            (previous, current) => previous + current.amount * current.price,  0
+            (previous, current) => previous + current.count * current.price,  0
         );
         
         console.log("carro", cartItems, cartOpen, productsLength, total)
@@ -60,19 +60,18 @@ class Basket extends Component {
                 </div>
                 {cartItems && cartOpen && (
                     <div className={styles.cart}>
-                    <h2>Tu carrito</h2>
+                        <h2>Tu carrito</h2>
 
-                    {cartItems.length === 0 ? (
-                        <p className={styles.cartVacio}>Tu carrito esta vacio</p>
-                    ) : (
-                        <div className={styles.productsContainer}>
-                        {cartItems.map((item, i) => (
-                            <ItemCart key={i} item={item} />
-                        ))}
-                        </div>
-                    )}
-
-                    <h2 className={styles.total}>Total: ${total}</h2>
+                        {cartItems.length === 0 ? (
+                            <p className={styles.cartVacio}>Tu carrito esta vacio</p>
+                        ) : (
+                            <div className={styles.productsContainer}>
+                            {cartItems.map((item, i) => (
+                                <ItemCart key={i} item={item} />
+                            ))}
+                            </div>
+                        )}
+                        <h2 className={styles.total}>Total: {formatCurrency(total)}</h2>
                     </div>
                 )}
             </div>
