@@ -18,7 +18,7 @@ class Products extends Component {
                 <div key={i} className={styles.product}>
                     <img src={amiibo.image} alt={amiibo.amiiboSeries} />
                     <div>
-                        <p>{amiibo.amiiboSeries} - {amiibo.name} - {formatCurrency(amiibo.price)}.-</p>
+                        <p>{amiibo.amiiboSeries} - {amiibo.name}</p><p>{formatCurrency(amiibo.price)}</p>
                     </div>
                     <button onClick={(e) => this.props.addToCart(this.props.cartItems, amiibo)}>Add to cart</button>
                 </div>

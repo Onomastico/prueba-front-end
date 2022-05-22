@@ -3,7 +3,7 @@
     height: 50px;
     display: flex;
     justify-content: flex-end;
-    font-family: Roboto;
+    font-family: Monstserrat;
   
     .buttonCartContainer {
       position: absolute;
@@ -75,6 +75,24 @@
         max-height: 200px;
         overflow-y: scroll;
         margin-top: 5px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 20px;
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #064f14;
+            margin: 0 auto;
+            background-color: chartreuse;
+        }
       }
     }
   }

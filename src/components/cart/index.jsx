@@ -72,6 +72,13 @@ class Basket extends Component {
                             </div>
                         )}
                         <h2 className={styles.total}>Total: {formatCurrency(total)}</h2>
+                        <div className={styles.buttons}>
+                            <button
+                                onClick={() => alert("Todo: Implement checkout page.")}
+                            >
+                                checkout
+                            </button>
+                        </div>
                     </div>
                 )}
             </div>
