@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {formatCurrency} from "../../util";
 import { addToCart, removeFromCart, toggleCartState } from "../../actions/cartActions";
+import { setAppState } from "../../actions/appActions";
 import ItemCart from "../itemCart";
 
 import styles from './styles.module.scss';
@@ -73,10 +74,8 @@ class Basket extends Component {
                         )}
                         <h2 className={styles.total}>Total: {formatCurrency(total)}</h2>
                         <div className={styles.buttons}>
-                            <button
-                                onClick={() => alert("Todo: Implement checkout page.")}
-                            >
-                                checkout
+                            <button onClick={(e) => this.props.setAppState('checkout')}>
+                                Ir a Pagar
                             </button>
                         </div>
                     </div>
@@ -90,4 +89,4 @@ const mapStateToProps = (state) => ({
   cart: state.cart
 });
 
-export default connect(mapStateToProps, { addToCart, removeFromCart, toggleCartState })(Basket);
+export default connect(mapStateToProps, { addToCart, removeFromCart, toggleCartState, setAppState })(Basket);

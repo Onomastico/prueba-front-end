@@ -12,8 +12,13 @@
     }
 }
 
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 .productsContainer {
-    width: 100%;
+    width: 100vw;
     display: grid;
     /*grid-template-columns: repeat(4, 0fr);*/
     grid-template-columns:repeat(auto-fill, 9em);

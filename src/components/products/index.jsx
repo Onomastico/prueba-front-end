@@ -8,21 +8,26 @@ import styles from './styles.module.scss';
 
 class Products extends Component {
     componentDidMount() {
-      this.props.fetchProducts();
+        if (!this.props.products) {
+            this.props.fetchProducts();
+        }
     }
 
     render () {
         if (this.props.products) {
-            return <div className={styles.productsContainer}>
-                {this.props.products.map((amiibo, i) => (
-                <div key={i} className={styles.product}>
-                    <img src={amiibo.image} alt={amiibo.amiiboSeries} />
-                    <div>
-                        <p>{amiibo.amiiboSeries} - {amiibo.name}</p><p>{formatCurrency(amiibo.price)}</p>
+            return <div>
+                <header className={styles.title}><h1>Listado de Productos</h1></header>
+                <section className={styles.productsContainer}>
+                    {this.props.products.map((amiibo, i) => (
+                    <div key={i} className={styles.product}>
+                        <img src={amiibo.image} alt={amiibo.amiiboSeries} />
+                        <div>
+                            <p>{amiibo.amiiboSeries} - {amiibo.name}</p><p>{formatCurrency(amiibo.price)}</p>
+                        </div>
+                        <button onClick={(e) => this.props.addToCart(this.props.cartItems, amiibo)}>Add to cart</button>
                     </div>
-                    <button onClick={(e) => this.props.addToCart(this.props.cartItems, amiibo)}>Add to cart</button>
-                </div>
-                ))}
+                    ))}
+                </section>
             </div>
         } else {
             return <div>
