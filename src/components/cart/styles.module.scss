@@ -6,9 +6,9 @@
     font-family: Monstserrat;
   
     .buttonCartContainer {
-      position: absolute;
-      margin-top: 10px;
-      margin-right: 20px;
+      position: fixed;
+      top: 10px;
+      right: 20px;
       cursor: pointer;
       z-index: 2;
   
@@ -26,6 +26,7 @@
         justify-content: center;
         border-radius: 999px;
       }
+      
       .productsNumber {
         height: 20px;
         width: 20px;
@@ -44,7 +45,7 @@
     }
   
     .cart {
-      position: absolute;
+      position: fixed;
       margin-top: 10px;
       margin-right: 20px;
       border-radius: 30px;

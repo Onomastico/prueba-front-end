@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Cart from '../cart';
 import Products from '../products';
 import Checkout from '../checkout';
+import { CONST_SHOPPING } from "../../utils/constants";
 
 import styles from './styles.module.scss';
 
@@ -12,7 +13,7 @@ class Home extends Component {
 
         return (
             <div className={styles.home}>
-                {((appState === 'shopping') ? <><Cart /><Products /></> : <Checkout />)}
+                {((appState === CONST_SHOPPING) ? <><Cart /><Products /></> : <Checkout />)}
             </div>
         )
     }

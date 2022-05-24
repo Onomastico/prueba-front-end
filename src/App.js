@@ -4,7 +4,6 @@ import Home from './components/home';
 
 import './App.scss';
 
-
 function App() {
   return (
     <Provider store={store}>
