@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart, removeFromCart } from "../../actions/cartActions";
+import { addToCart, reduceInCart, removeFromCart } from "../../actions/cartActions";
 import { formatCurrency } from "../../utils/currency";
 
 import styles from "./styles.module.scss";
@@ -18,6 +18,15 @@ class ItemCart extends Component {
             <div className={styles.buttons}>
               <button onClick={(e) => this.props.addToCart(this.props.cartItems, item)}>
                 Agregar
+              </button>
+              <button onClick={(e) => {
+                  if (item.count >= 2) {
+                    return this.props.reduceInCart(this.props.cartItems, item);
+                  } else {
+                    return this.props.removeFromCart(this.props.cartItems, item);
+                  }
+                }}>
+                Restar
               </button>
               <button onClick={(e) => this.props.removeFromCart(this.props.cartItems, item)}>
                 Quitar
@@ -38,4 +47,4 @@ const mapStateToProps = (state) => ({
   cartItems: state.cart.items
 });
 
-export default connect(mapStateToProps, { addToCart, removeFromCart })(ItemCart);
+export default connect(mapStateToProps, { addToCart, reduceInCart, removeFromCart })(ItemCart);

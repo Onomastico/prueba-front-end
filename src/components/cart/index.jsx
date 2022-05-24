@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatCurrency } from "../../utils/currency";
-import { addToCart, removeFromCart, toggleCartState } from "../../actions/cartActions";
+import { toggleCartState } from "../../actions/cartActions";
 import { setAppState } from "../../actions/appActions";
 import ItemCart from "../itemCart";
 
@@ -88,4 +88,4 @@ const mapStateToProps = (state) => ({
   cart: state.cart
 });
 
-export default connect(mapStateToProps, { addToCart, removeFromCart, toggleCartState, setAppState })(Basket);
+export default connect(mapStateToProps, { toggleCartState, setAppState })(Basket);

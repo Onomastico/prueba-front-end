@@ -1,19 +1,33 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, TOGGLE_CART_STATE } from './types';
 
-export const addToCart = (items, product) => (dispatch) => {
+const alterCart = (items, product, type) => {
     const cartItems = items.slice();
     let alreadyInCart = false;
 
     cartItems.forEach(element => {
         if (element.id === product.id) {
-            element.count += 1;
+            if (type === 'add') {
+                element.count += 1;
+            } else {
+                element.count -= 1;
+            }
             alreadyInCart = true;
         }
     });
 
     if (!alreadyInCart) {
-        cartItems.push({ ...product, count:1});
+        cartItems.push({ ...product, count: 1 });
     }
+    return cartItems;
+}
+
+export const addToCart = (items, product) => (dispatch) => {
+    const cartItems = alterCart(items, product, 'add');
+    dispatch({ type: ADD_TO_CART, payload: {cartItems}});
+};
+
+export const reduceInCart = (items, product) => (dispatch) => {
+    const cartItems = alterCart(items, product, 'reduce');
     dispatch({ type: ADD_TO_CART, payload: {cartItems}});
 };
 
