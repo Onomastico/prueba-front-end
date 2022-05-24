@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {formatCurrency} from "../../util";
+import { formatCurrency } from "../../utils/currency";
 import { addToCart, removeFromCart, toggleCartState } from "../../actions/cartActions";
 import { setAppState } from "../../actions/appActions";
 import ItemCart from "../itemCart";
@@ -17,7 +17,6 @@ class Basket extends Component {
             (previous, current) => previous + current.count * current.price,  0
         );
         
-        console.log("carro", cartItems, cartOpen, productsLength, total)
         return (
             <div className={styles.cartContainer}>
                 <div onClick={(e) => this.props.toggleCartState(!cartOpen)} className={styles.buttonCartContainer}>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../actions/cartActions";
 import { fetchProducts } from "../../actions/productActions";
-import { formatCurrency} from "../../util"
+import { formatCurrency} from "../../utils/currency"
 
 import styles from './styles.module.scss';
 

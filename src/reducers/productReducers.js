@@ -1,9 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
-import {
-    FETCH_PRODUCTS
-  } from "../actions/types";
-
-import {generateRandomPrice} from "../util"
+import { FETCH_PRODUCTS } from "../actions/types";
+import { generateRandomPrice } from "../utils/prices";
   
 const initState = { items: null };
 export default function (state = initState, action) {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addToCart, removeFromCart } from "../../actions/cartActions";
-import {formatCurrency} from "../../util";
+import { formatCurrency } from "../../utils/currency";
 
 import styles from "./styles.module.scss";
 
