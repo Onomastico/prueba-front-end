@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addToCart } from "../../actions/cartActions";
-import { fetchProducts } from "../../actions/productActions";
-import { formatCurrency} from "../../utils/currency"
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addToCart } from '../../actions/cartActions';
+import { fetchProducts } from '../../actions/productActions';
+import { formatCurrency} from '../../utils/currency'
 
 import styles from './styles.module.scss';
 
@@ -20,9 +20,13 @@ class Products extends Component {
                 <section className={styles.productsContainer}>
                     {this.props.products.map((amiibo, i) => (
                     <div key={i} className={styles.product}>
-                        <img src={amiibo.image} alt={amiibo.amiiboSeries} />
-                        <div>
-                            <p>{amiibo.amiiboSeries} - {amiibo.name}</p><p>{formatCurrency(amiibo.price)}</p>
+                        <div className={styles.tooltip}>
+                            <span className={styles.tooltiptext}>
+                                <p>{amiibo.name}</p>{amiibo.amiiboSeries}<p>{amiibo.character}</p>{amiibo.gameSeries}</span>
+                            <img src={amiibo.image} alt={amiibo.amiiboSeries} />
+                            <div>
+                                <p>{amiibo.name}</p><p>{formatCurrency(amiibo.price)}</p>
+                            </div>
                         </div>
                         <button onClick={(e) => this.props.addToCart(this.props.cartItems, amiibo)}>Add to cart</button>
                     </div>
@@ -31,7 +35,7 @@ class Products extends Component {
             </div>
         } else {
             return <div>
-                <img src="https://i.gifer.com/YCZH.gif" alt="loading" />
+                <img src='https://i.gifer.com/YCZH.gif' alt='loading' />
             </div>
         }
     }

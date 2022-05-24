@@ -18,7 +18,7 @@
       }
   
       .buttonCart {
-        background-color: #222222;
+        background-color: #222222f3;
         width: 60px;
         height: 60px;
         display: flex;
@@ -34,7 +34,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        background-color: #fb3939;
+        background-color: #fb3939f3;
         font-size: 12px;
         font-weight: bold;
         color: white;
@@ -50,8 +50,9 @@
       margin-right: 20px;
       border-radius: 30px;
       width: 450px;
-      background-color: #222222;
+      background-color: #222222f3;
       color: white;
+      z-index: 1;
   
       h2 {
         text-align: center;
